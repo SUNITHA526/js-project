@@ -1,6 +1,35 @@
 body{
-    background-image: url("./../../moviebg2.jpg");
+    background-image: url("https://images.pexels.com/photos/7991498/pexels-photo-7991498.jpeg?cs=srgb&dl=pexels-tima-miroshnichenko-7991498.jpg&fm=jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
 
+body>h1{
+    color: rgb(106, 10, 10);
+    font-family: cursive;
+}
+#tagline{
+    position: absolute;
+    left: 60%;
+    top: 50%;
+}
+#tagline>h1{
+    color:  rgb(106, 10, 10);
+    font-family: cursive;
+}
+#signup-btn{
+    background-color: rgb(106, 10, 10);
+    font-weight: bold;
+    border: white;
+    color: black;
+}
+#login-btn{
+    background-color: rgb(106, 10, 10);
+    border: white;
+    font-weight: bold;
+    color: black;
+}
+#Register{
+    display: flex;
+    justify-content: center;
+}

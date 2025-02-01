@@ -1,0 +1,52 @@
+body{
+    background-image: url("https://images.pexels.com/photos/4722571/pexels-photo-4722571.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    min-height: 100vh;
+    background-position: center;
+}
+#en>a{
+    font-weight: bold;
+}
+#watchlist{
+    font-weight: bold;
+    color: rgb(106, 10, 10);
+    background-color:  black;
+    padding: 10px;
+    font-size: 1.2rem;
+    outline-color: black;
+}
+#search{
+    font-weight: bold;
+    color: black;
+    width: 60vw;
+}
+
+#all{
+    font-weight: bold;
+    color: rgb(106, 10, 10);
+    font-size: 1.2rem;
+}
+#languages{
+    margin-left: 50px;
+    margin-bottom: 20px;
+   font-size: 1.2rem;
+   background-color: black;
+   color: rgb(106, 10, 10);
+   border-radius: 5px;
+   padding: 12px;
+}
+
+.all_dropdown{
+    display: flex;
+    gap: 40px;
+    margin-right: 100%;
+    margin-left: 0px;
+    padding: 5px;
+    margin-left: 0%;   
+}
+#enjoyy{
+    font-weight: bold;
+    color: rgb(106, 10, 10);
+}
