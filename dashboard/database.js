@@ -116,6 +116,8 @@ const firebaseConfig = {
 
     console.log(movie_stored)
 const dbRef = ref(database);
+const db = getDatabase(app)
+
 
     try {
     
@@ -127,72 +129,63 @@ const dbRef = ref(database);
         movieArray.push(movieArray);
          await set(dbRef, movie_stored);
         console.log("Data successfully added");
-        movieArray.reset();  
+        // movieArray.reset();  
     } catch (error) {
         console.error("Error adding data:", error.message || error);
         console.log(error)
     }
 
-    const db = getDatabase(app);
 
-    const hindi = "Hindi";
-    const kannada = "Kannada";
-    const tamil = "Tamil";
-    const telugu = "Telugu";
+const movieRef = ref(db, "movies");
+let allmovies = [];
 
-
-
-
-
-// const db = getDatabase(app);
-const movieRef = ref(db, `movies/${hindi}/${kannada}/${tamil}/${telugu}`);  
-get(movieRef)
-  .then((snapshot) => {
+const fetchMovies = async () => {
+  try {
+    const snapshot = await get(movieRef);
     if (snapshot.exists()) {
-      console.log("movies:", snapshot.val());  // Logs the data if it exists
+      allmovies = snapshot.val();
+      console.log("All data fetched", allmovies);
     } else {
-      console.log("No data available");  // Logs this if no data exists at the specified path
+      console.log("No data available");
     }
-  })
-  .catch((error) => {
-    console.error("Error getting data:", error);  // Logs any errors
-  }); 
+  } catch (error) {
+    console.error("Error getting data:", error);
+  }
+};
+const searchinput=document.getElementById("search")
+
+ function searchMovies() {
+  const searchQuery = searchinput.value.toLowerCase();
+  const filteredMovies = allmovies.filter((movie) => {
+    return (
+      (movie.movie_artists && movie.movie_artists.toLowerCase().includes(searchQuery)) ||
+      (movie.movie_category && movie.movie_category.toLowerCase().includes(searchQuery)) ||
+      (movie.movie_director && movie.movie_director.toLowerCase().includes(searchQuery)) ||
+      (movie.movie_language && movie.movie_language.toLowerCase().includes(searchQuery)) ||
+      (movie.movie_name && movie.movie_name.toLowerCase().includes(searchQuery))
+    );
+  });
+  console.log("Filtered Movies: ", filteredMovies); 
 
 
+const movie_display=document.getElementById("movie_display")
+    filteredMovies.forEach((movie) => {
+    movie_display.innerHTML="";
+    const movie_displayingCard=document.createElement("div")
+    movie_displayingCard.innerHTML=`<p>${movie.movie_name}</p><p>${movie.movie_artists}</p><p>${movie.movie_director}
+    </p><p>${movie.movie_language}</p><p><a href="${movie.movie_url}"></a></p><p>${movie.movie_category}</p>
+    `
+    movie_displayingCard.addEventListener("click",()=>{
+      showMovieDetails(movie)
+    });
 
-    const searchinput=document.getElementById("search")
-    let allmovies=[]
-    const fetchmovies=()=>{
-      get(movieRef)
-      .then((snapshot)=>{
-        if(snapshot.exists()){
-            allmovies=snapshot.val()
-            console.log("All data fetched", allmovies)
-        }else{
-          console.log("no data available");
-          
-        }
-      })
-      .catch((error)=>{
-        console.error("error getting error", error)
-      })
-    
-    };
+    movie_display.append(movie_displayingCard)
+});
+ }
+fetchMovies();
 
-    const searchmovies=()=>{
-      const searchquery=searchinput.value.toLowerCase()
-      const filteredmovies=Object.values(allmovies).filter((movies)=>{
-        return (movies.movie_artists && movies.movie_artists.toLowerCase().includes(searchquery) ||
-        (movies.movie_category && movies.movie_category.toLowerCase().includes(searchquery)) ||
-        (movies.movie_director && movies.movie_director.toLowerCase().includes(searchquery)) ||
-        (movies.movie_language && movies.movie_language.toLowerCase().includes(searchquery)) ||
-        (movies.movie_name && movies.movie_name.toLowerCase().includes(searchquery)) 
-        )
-    })
-      displayMovies(filteredmovies);
-    };
-  
-    
+ searchMovies()
+//  fetchMovies()
 
 
 
