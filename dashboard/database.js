@@ -136,15 +136,83 @@ const db = getDatabase(app)
     }
 
 
-const movieRef = ref(db, "movies");
-let allmovies = [];
+// const movieRef = ref(db, "movies");
+// let allmovies = [];
 
+
+// const fetchMovies = async () => {
+//   try {
+//     const snapshot = await get(movieRef);
+//     if (snapshot.exists()) {
+//      let allData = snapshot.val();
+//      allmovies=allData;
+//       console.log("All data fetched", allmovies);
+//     } else {
+//       console.log("No data available");
+//     }
+//   } catch (error) {
+//     console.error("Error getting data:", error);
+//   }
+// };
+
+// console.log(allmovies,"157 line")
+// const searchinput=document.getElementById("search")
+
+//  function searchMovies() {
+//   const searchQuery = searchinput.value.toLowerCase();
+//   const filteredMovies = allmovies.filter((movie) => {
+//     return (
+//       (movie.movie_artists && movie.movie_artists.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_category && movie.movie_category.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_director && movie.movie_director.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_language && movie.movie_language.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_name && movie.movie_name.toLowerCase().includes(searchQuery))
+//     );
+//   });
+//   console.log("Filtered Movies: ", filteredMovies); 
+
+
+// const movie_display=document.getElementById("movie_display")
+//     filteredMovies.forEach((movie) => {
+//     movie_display.innerHTML="";
+//     const movie_displayingCard=document.createElement("div")
+//     movie_displayingCard.innerHTML=`<p>${movie.movie_name}</p><p>${movie.movie_artists}</p><p>${movie.movie_director}
+//     </p><p>${movie.movie_language}</p><p><a href="${movie.movie_url}"></a></p><p>${movie.movie_category}</p>
+//     `
+//     movie_displayingCard.addEventListener("click",()=>{
+//       showMovieDetails(movie)
+//     });
+
+//     movie_display.append(movie_displayingCard)
+// });
+//  }
+// fetchMovies();
+
+//  searchMovies()
+// //  fetchMovies()
+
+
+
+
+
+
+
+
+const movieRef = ref(db, "movies");
+let allmovies = []; // Stores fetched movies persistently
+// console.log(allmovies)
 const fetchMovies = async () => {
   try {
     const snapshot = await get(movieRef);
     if (snapshot.exists()) {
-      allmovies = snapshot.val();
-      console.log("All data fetched", allmovies);
+      const allData = snapshot.val();
+      // console.log(allData,"obj data",Object.values(allData))
+
+      // Ensure array gets updated properly
+      allmovies.length = 0; // Clear existing data (optional)
+      allmovies.push(...Object.values(allData)); // Store fetched data properly
+      
+      console.log("All data fetched and stored:", allmovies);
     } else {
       console.log("No data available");
     }
@@ -152,42 +220,60 @@ const fetchMovies = async () => {
     console.error("Error getting data:", error);
   }
 };
-const searchinput=document.getElementById("search")
 
- function searchMovies() {
-  const searchQuery = searchinput.value.toLowerCase();
-  const filteredMovies = allmovies.filter((movie) => {
-    return (
-      (movie.movie_artists && movie.movie_artists.toLowerCase().includes(searchQuery)) ||
-      (movie.movie_category && movie.movie_category.toLowerCase().includes(searchQuery)) ||
-      (movie.movie_director && movie.movie_director.toLowerCase().includes(searchQuery)) ||
-      (movie.movie_language && movie.movie_language.toLowerCase().includes(searchQuery)) ||
-      (movie.movie_name && movie.movie_name.toLowerCase().includes(searchQuery))
-    );
-  });
-  console.log("Filtered Movies: ", filteredMovies); 
+// Call the function and check data persistence
+(async () => {
+  await fetchMovies();
+  console.log("Stored movies after fetch:", allmovies); // Data persists
+})();
+
+console.log(allmovies)
 
 
-const movie_display=document.getElementById("movie_display")
-    filteredMovies.forEach((movie) => {
-    movie_display.innerHTML="";
-    const movie_displayingCard=document.createElement("div")
-    movie_displayingCard.innerHTML=`<p>${movie.movie_name}</p><p>${movie.movie_artists}</p><p>${movie.movie_director}
-    </p><p>${movie.movie_language}</p><p><a href="${movie.movie_url}"></a></p><p>${movie.movie_category}</p>
-    `
-    movie_displayingCard.addEventListener("click",()=>{
-      showMovieDetails(movie)
-    });
+// let movies=allmovies
+// console.log(movies);
 
-    movie_display.append(movie_displayingCard)
-});
- }
-fetchMovies();
+// function searchMovies() {
+//   const searchinput=document.querySelector("input")
+// console.log(searchinput,"input tag")
+// const searchQuery = searchinput;  
+// console.log('Search Query:', searchQuery);
+ 
+//   const allMoviesArray = [].push(...Object.values(movies)); 
+//   console.log("All Movies Array:", allMoviesArray); 
+//   const filteredMovies = allMoviesArray.filter((movie) => {
+//     console.log('Checking movie:', movie); 
+//     return (
+//       (movie.movie_artists && movie.movie_artists.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_category && movie.movie_category.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_director && movie.movie_director.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_language && movie.movie_language.toLowerCase().includes(searchQuery)) ||
+//       (movie.movie_name && movie.movie_name.toLowerCase().includes(searchQuery))
+//     );
+//   });
 
- searchMovies()
-//  fetchMovies()
+//   console.log("Filtered Movies: ", filteredMovies);  
+
+//   if (filteredMovies.length === 0) {
+//     console.log("No movies found that match the search criteria");
+//   }
+
+//   // movie_display.innerHTML = ""; 
+//   filteredMovies.forEach((movie) => {
+//     const movieCard = document.createElement("div");
+//     movieCard.classList.add("movie-card");
+//     movieCard.innerHTML = `
+//       <h3>${movie.movie_name}</h3>
+//       <p>Artists: ${movie.movie_artists}</p>
+//       <p>Director: ${movie.movie_director}</p>
+//       <p>Language: ${movie.movie_language}</p>
+//       <p>Category: ${movie.movie_category}</p>
+//       <a href="${movie.movie_url}" target="_blank">View Movie</a>
+//     `;
+//     movie_display.append(movieCard);
+//   });
+// }
+// searchMovies()
 
 
-
-
-
+// searchinput.addEventListener("input", searchMovies);
