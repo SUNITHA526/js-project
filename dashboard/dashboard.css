@@ -50,3 +50,11 @@ body{
     font-weight: bold;
     color: rgb(106, 10, 10);
 }
+
+#carouselExample{
+    width: 800px;
+    height: 2000px;
+    /* display: flex;
+    justify-content: center; */
+    
+}
