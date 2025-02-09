@@ -54,6 +54,7 @@ console.log(allMoviesFromLocalStorage,"allMoviesFromLocalStorage")
 
 
 function searchMovies() {
+
   const movieContainer = document.getElementById("filteredData");
   const searchInput = document.querySelector("#search"); 
 
@@ -66,6 +67,8 @@ function searchMovies() {
     console.error("❌ Search input element not found!");
     return;
   }
+
+
 
   const query = searchInput.value.trim().toLowerCase();
   console.log("🔍 Search Query:", query);
@@ -81,14 +84,17 @@ function searchMovies() {
       if (Object.values(movie).some(value => 
         typeof value === "string" && value.toLowerCase().includes(query))) {
           filteredMovies.push(movie);
+
       }
+      
     });
   });
 
   console.log("✅ Filtered Movies:", filteredMovies);
 
   if (filteredMovies.length === 0) {
-    movieContainer.innerHTML = "<p>No movies found matching your search.</p>";
+    movieContainer.classList.add("Nomoviesfound")
+    movieContainer.innerHTML = "<i><p>No movies found matching your search.</p></i>";
     return;
   }
 
@@ -103,11 +109,57 @@ function searchMovies() {
       <p><strong>Category:</strong> ${movie.movie_category ?? "N/A"}</p>
       <p><strong>Artists:</strong> ${movie.movie_artists ?? "N/A"}</p>
       <video src="${movie.movie_url ?? "#"}" target="_blank">Watch Movie</video>
+      <button class="watchlist-btn">Add to Watchlist</button>
     `;
 
+    // document.querySelector("#movies-container").appendChild(movieCard);
     movieContainer.appendChild(movieCard);
-  });
-}
+    // Handle Watchlist button click
+    const watchlistBtn = movieCard.querySelector(".watchlist-btn");
+    watchlistBtn.addEventListener("click", () => {
+        addToWatchlist(movie);
+    });
+    function addToWatchlist(movie) {
+      let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+  
+      // Check if the movie is already in the watchlist
+      if (!watchlist.some(m => m.movie_name === movie.movie_name)) {
+          watchlist.push(movie);
+          localStorage.setItem("watchlist", JSON.stringify(watchlist));
+          alert(`${movie.movie_name} added to your watchlist!`);
+      } else {
+          alert(`${movie.movie_name} is already in your watchlist!`);
+      }
+  }
+    
+
+  })
+  console.log("hbjnkm")
+  ;
+  }
+
+  console.log("hello")
+
+
+  const langDropdown = document.getElementById("lang_dropdown");
+  console.log(langDropdown,"dssfhj")
+  langDropdown.addEventListener("click", (event) =>
+  {
+    console.log(event,"someee")
+  
+    if (event.target.tagName === "I") {
+        const selectedText = event.target.innerText.trim().split("(")[0];
+
+        console.log(selectedText,"some")
+
+        if (selectedText === "Enjoyyyy wathing...") return; // Ignore this item
+
+        const filteredMovies = allMoviesFromLocalStorage.filter(movie => movie[0].movie_language === selectedText);
+        console.log(filteredMovies);
+        
+        
+    }
+})
     const searchInputElement = document.querySelector("#search");
     // console.log(searchInputElement.value)
     if (searchInputElement) {
@@ -120,16 +172,25 @@ function searchMovies() {
     } else {
       console.error("❌ Search input element not found!");
     }
-//xfgchvjbknm//
 
 
-// let movie_container=document.getElementById("movieContainer")
-// movie_container.innerHTML=`
-// <h2>Bahubali Chapter-1</h2>
-// <video src=""></video>
-// <p>Action,Drama</p>
-// <p></p>
-// `
+var swiper = new Swiper(".mySwiper", {
+  slidesPerView: 3,
+  spaceBetween: 30,
+  slidesPerGroup: 3,
+  loop: true,
+  loopFillGroupWithBlank: true,
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+
 
 
     

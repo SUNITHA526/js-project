@@ -1,146 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./database.css">
-    <link rel="stylesheet" href="./dashboard.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+  <link rel="stylesheet" href="./database.css">
+  <link rel="stylesheet" href="./dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
-     
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyRSMgB-INUQAPYiSmh1tlgLclVReZAci9gQ&s" alt="" width="90" height="50" class="logo"/>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              
-              <li class="nav-item dropdown">
-                <a id="all" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i>All</i>
-                </a>
-                <ul class="dropdown-menu" id="all_dropdown">
-                  <li class="all_dropdown" id="all_dropdown1"><a class="dropdown-item" href="#" ></a><i class="fa-solid fa-magnifying-glass fa-flip"></i><i>All</i></a></li>
-                  <li class="all_dropdown" id="title_dropdown"><a class="dropdown-item" href="#"></a><i class="fa-solid fa-tv fa-beat-fade"></i><i>Titles</i></a></li>
-                  <li class="all_dropdown" id="celebs_dropdown"><a class="dropdown-item" href="#"></a><i class="fa-solid fa-users fa-fade"></i><i>Celebs</i></a>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-regular fa-window-restore fa-bounce"></i>Advanced search here</a></li>
-                </ul>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyRSMgB-INUQAPYiSmh1tlgLclVReZAci9gQ&s" alt=""
+        width="90" height="50" class="logo" />
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item dropdown">
+            <a id="all" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i>All</i>
+            </a>
+            <ul class="dropdown-menu" id="all_dropdown">
+              <li class="all_dropdown" id="all_dropdown1"><a class="dropdown-item" href="#"></a><i
+                  class="fa-solid fa-magnifying-glass fa-flip"></i><i>All</i></a></li>
+              <li class="all_dropdown" id="title_dropdown"><a class="dropdown-item" href="#"></a><i
+                  class="fa-solid fa-tv fa-beat-fade"></i><i>Titles</i></a></li>
+              <li class="all_dropdown" id="celebs_dropdown"><a class="dropdown-item" href="#"></a><i
+                  class="fa-solid fa-users fa-fade"></i><i>Celebs</i></a>
+              <li>
+                <hr class="dropdown-divider">
               </li>
-              
+              <li><a class="dropdown-item" href="#"><i class="fa-regular fa-window-restore fa-bounce"></i>Advanced
+                  search here</a></li>
             </ul>
-            <!-- <form class="d-flex" role="search"> -->
-              <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-dark" id="watchlist" type="submit"><i class="fa-solid fa-plus"></i> <i>watchlist</i></button>
-            <!-- </form> -->
-            <li class="nav-item dropdown" id="en">
-                <a id="languages"  class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i>languages</i>
-                </a>
-                <ul class="dropdown-menu" id="lang_dropdown">
-                  <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Tamil(Kollywood)</i></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Hindi(Bollywood)</i></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Kannada(sandalwood)</i></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Telugu(tollywood)</i></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#" id="enjoyy"><i>Enjoyyyy wathing...</i></a></li>
-                </ul>
-              </li>
-          </div>
-        </div>
-      </nav>
+          </li>
 
-
-      <div id="filteredData"></div>
-      <div id="movieContainer"></div>
-
-
-
-      <!-- caruosel -->
-      <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <video src="https://imdb-video.media-imdb.com/vi3834163993/1434659607842-pgv4ql-1438191196090.mp4?Expires=1738948248&Signature=nGcC7I9yWYSW3rkPc03AIa2~etf~zAUnfUDdX-6HEDsuko6Rxs4vyf1LnLlbWYc8F-JwG2RUsWXWCwPBNcz4jLYfD-onCcjkIImMjvl3GXsh7WCVra230lLK6auAKJ-5~Oz0NJQjZnR~AsJSWxzmAq4aV5jhw1WgU8FZiu6Tc4FlvTXqj~pFZu2fAA2SkvfmTB8WMr9n9gO2TePjAEESrCtKDtZItb80ZtxuiViJNtwZ2zHEMteRwnTw~urT5qpUnQse3hj2qYejd1zpZM4x~9XqeT6xDGAyR1p5SanGx4sBrv~jJ6je4aMHGGkYf4bAZk71YMc6KqMI7AWcXIEJAA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>bahubali</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi3994273561/1434659607842-pgv4ql-1700903097714.mp4?Expires=1738948354&Signature=qwpcGJC1wGqCLtNtBeQ39TKpYwGwtkKbK~GU~fMkq93RJ5sXkivZEQ9uD97sIQJGzOdGzbU-4xnUR9EhGrJnWYwNpOB0eKvnYGV1N-eAzrfPsBxfoYmhBlelfEk1tJkm0KuYdJtMdqiIXXGmnlk1SOVXUvu30VH3WUyV1VpoIe43vaQT0sdC5EYmGP23AV33gIYLDWFCSzGRFWXhstDRyIOti6xZzySMSE3eRiYD05GwmRiwsWlaCfgM2Pi3sEnjuTEJ8ltye2-waCDY7UQkYBfkoyhF8GhImVzzueckaMoRyCIndpuvpcq4YuPJeDQx3T~PlJiPKbtzLYB~MDVUVQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>hi nanna</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi135120665/1434659607842-pgv4ql-1702968751291.mp4?Expires=1738948398&Signature=AaWTqUoPVaHrBb2AtUuy4~OyPda70k7PRSvfCNoHDxZmaf0ocFeBqPP0-PMwEKoK2y8ondcBDIsWIRZ-WnpHhDIG~xtXRQIYtM0wme-DEi7jBw63t78Xh3T-PX-ob6Jv0eJ8Xsoy7zocboiU2lDBFSe3YfiNQwFO6UuR34Vqvo6HCymblODsgiFZbJXIYkQGF7ip4AtarrnZYWjAN~nG5eb0cJI7x4ZLapZ~vXfYdVWU6Szat5QVF-3wVhYDuAMj-qLhu3yWvyt72szHNJijcP37~4vJnb3SZvU57t2ZfRWX-kJODJOWsMlHTmVbl6-tBNE590ypUWSqofQjIKdqRw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>kaatera</p>
-          </div>
-          <div class="carousel-item active">
-            <video src="https://imdb-video.media-imdb.com/vi986760985/1434659607842-pgv4ql-1695219579056.mp4?Expires=1738948474&Signature=HHUUffyJ-skVRaars0AduP0Ea8Y3NJnscvyL32nlUfEdMT7PoOiKiBs9VdmTLdewwiiKkQtsy3OvrezNj4boPbtuQaAhHbOLDk9B~8wDGiFix7TuEupzCN1OSm9mr0HBAOCwx~ruVyYVI4JGwHBtG6x7bB36LC07uC1UNx5pSTZoX0oDe0tYOiC~D~Yz5Hsicfs2p3SwTJFyX1NelV4AYTEXRTm3l~Q167EH4o125HNSpmRxy9Qp6iNMScrFJV3L~4dw2O40HSDEglD-cF96v06VfrNQ9dQ1bgbwe7f1px3R1XYSI3dj8GsuPq9Qa5SUl1iwblvh8I1iwMlw-0HYhg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>jawan</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi2451753241/1434659607842-pgv4ql-1737101230191.mp4?Expires=1738948313&Signature=T4un2MxIjR5XRvQ0nEfiT-3oiQWHcv0Csy4JbJ-~Jh~GEBF5sIfENgHSrq7ryXpfiJfiMfHS1s~O-MeQFFfIwT7QAqeKe~ZzdSIHkpf6uGDXKY5ZPidEbLVSp~klPTpFP1okOzy2wLsePwzF4Ew1H-~~LIgNAdWocPj0fEKEl6STgnYPsOn547ko2kg8TTItoeUDPcwDdEqTK-hPNkWbenXNPr9WAzagWx1JkpyKVP3DXofpNb09sbRZO7kVzbNcjuFVPTYZIAIky0-MWCpKbE3XUw6OmaCbVXep3igogoq9loUEabKOneKrsHj72Z4Zd9WRjITQwN-ixhBSzRFisg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>tamil vidaamuyarchi</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi760267289/1434659607842-pgv4ql-1662432666291.mp4?Expires=1738948796&Signature=SzwpQWM4iZdCptiIFclNqep19XXYkzOwNp6ViaS6~Q0hkHWhRvXswXGEPMEfCH5x9EBehOazS9oaCWgVv35jeUytlWVwDfvRBSlJGtWxl6bO1PFZZ41Z7E~SnJuzbmGUTf03AlcVA3U2~o1ky2Z3TQeTsjptjzC~ZV9wQMokNt4nxiuNgvsWvyrtx9mXI8wc5ZXEmXsTts0Oo2gIemV65-ZRIABlCWhJbIdpZxA93~GN5ZPVrKyqMsIffg6fKiFxGqEt4uD7-m04m8qexGN2~F6kZ6I6Gw549C3WFObZsKzW1lSZ8tc2AsPqwHbFvOLZP53~B7oZOQnYWgeppo2QZw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>kaantara</p>
-          </div>
-          <div class="carousel-item active">
-            <video src="https://imdb-video.media-imdb.com/vi3431842329/1434659607842-pgv4ql-1652774087329.mp4?Expires=1738948847&Signature=f109f72TI5DLmXqUA5Ta5YP1NCADhdazNqNXXqujChfra0ycP~lDP8IAJJ~zFFyfY0tnTO569A3QX3tdmFO8IEtS0llgai2XdQ-BQPoMpDG9DwAKyJ1aklPT222OfYq1T8wtOTdrmmHdOly3suDYlJ8KIEpvGHrCWz971wxouItkLPqPSOQyhHg-VDdiR7EOCDGgfnpm4jaPVV1CwDNU1c38mZo520OMmUp3P81A41b0VMqiHZ04YMqUwxkVmV4gzm~azKq8a0M0fYHxnKuy5IrFbr-rgXKGoWs7T3uEG4uWvxgzJrUsm22jblSkODl60mk0lYfhAk13Q~1CG3~R3A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>777 Charlie</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi1721157913/1434659607842-pgv4ql-1731923019170.mp4?Expires=1738948415&Signature=E1hXFq5DP8Z-IEX-yjawT4z5M3DUHbHl9IFSKUzyfkKyBZWbAKU3hPSxpv1bhbmKtVVLrgj8z1w6AiIMiD79SyWUhC4Lqy3sZzONQlWsyT-rd0jKZrpimOtEK0h0TOhlGftyw3TQDD8fORGR1LNkHeAgRjldXXrkGgILbnhvJrnXJG-aCsqwVUVYPPf07ietJxK380z9ZdJi1Hhj7dlFES0Gi~RAWIHH9YJa2Jy6ps0DsfPxi14lUnWA6qlkm50bDQ-aML7-NnAhcCyr0eTrBAnsH8KdA5~mSmODYS5a1zIUQKfdnEu51ViCdoFete-RCiksfyATEk20JPARZKUdsw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>pushpa rule-2</p>
-          </div>
-          <div class="carousel-item">
-            <video src="https://imdb-video.media-imdb.com/vi3805202713/1434659607842-pgv4ql-1735534290096.mp4?Expires=1738948788&Signature=sOqQUYvWPO-4gBy-wCcAGd-Bpo8FrnT1jBaqPUdtSlme-8UxPOnxZo8nwEQdpWe0OVX-~nXGE5xuC1D77FOcU3XUWb9mjSLKezjfAw0ffEQuSnnXWq0o3wpf~O50aeN3hw44Ak59cg8TfdnRTde4QnkJBVXPzvfaxtfva9KL-D5Op0M-NaQjOaLPm4k~ZD~bpGGng4jIkjGihcpJyFJMEGYIq31gXudy~gWyYlwlAawp4nOemnHaHudwZ-cR-jfLvebyix6m3OHIkQ-fXtT9mbt~~CHlFTVsvxAZZUm5p6sW1ycSe42gd5OVqn2SlSPdDuJj9HOjvwzzwTvnmx0CuQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
-          <p>sikandar</p>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-
-
-      <!-- moviecards -->
-
-
-
-      <div class="card" style="width: 18rem;">
-        <img src="https://wallpapers.com/images/hd/allu-arjun-smiling-sq4roinrtnh3he3b.jpg" class="card-img-top" alt="..." width="300" height="300">
-        <div class="card-body">
-          <h5 class="card-title">Allu Arjun</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">An item</li>
-          <li class="list-group-item">A second item</li>
-          <li class="list-group-item">A third item</li>
         </ul>
-        <div class="card-body">
-          <a href="#" class="card-link">Card link</a>
-          <a href="#" class="card-link">Another link</a>
+        <!-- <form class="d-flex" role="search"> -->
+        <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-dark" id="watchlist" type="submit"><i class="fa-solid fa-plus"></i>
+          <i>watchlist</i></button>
+        <!-- </form> -->
+        <li class="nav-item dropdown" id="en">
+          <a id="languages" class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i>languages</i>
+          </a>
+          <ul class="dropdown-menu" id="lang_dropdown">
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Tamil(Kollywood)</i></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Hindi(Bollywood)</i></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Kannada(sandalwood)</i></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Telugu(tollywood)</i></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#" id="enjoyy"><i>Enjoyyyy wathing...</i></a></li>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+
+  <div id="filteredData"></div>
+  <div id="movieContainer"></div>
+
+
+  <div id="carouselExampleCaptions" class="carousel slide">
+    <!-- <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div> -->
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <video src="https://imdb-video.media-imdb.com/vi3834163993/1434659607842-pgv4ql-1438191196090.mp4?Expires=1738948248&Signature=nGcC7I9yWYSW3rkPc03AIa2~etf~zAUnfUDdX-6HEDsuko6Rxs4vyf1LnLlbWYc8F-JwG2RUsWXWCwPBNcz4jLYfD-onCcjkIImMjvl3GXsh7WCVra230lLK6auAKJ-5~Oz0NJQjZnR~AsJSWxzmAq4aV5jhw1WgU8FZiu6Tc4FlvTXqj~pFZu2fAA2SkvfmTB8WMr9n9gO2TePjAEESrCtKDtZItb80ZtxuiViJNtwZ2zHEMteRwnTw~urT5qpUnQse3hj2qYejd1zpZM4x~9XqeT6xDGAyR1p5SanGx4sBrv~jJ6je4aMHGGkYf4bAZk71YMc6KqMI7AWcXIEJAA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Bahubali</h5>
+          <p>Action, Drama</p>
         </div>
       </div>
-
-
-
-      
-      
-     <script type="module" src="./database2.js"></script> 
-    <!-- <script type="module" src="./dashboard.js"></script> -->
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi3994273561/1434659607842-pgv4ql-1700903097714.mp4?Expires=1738948354&Signature=qwpcGJC1wGqCLtNtBeQ39TKpYwGwtkKbK~GU~fMkq93RJ5sXkivZEQ9uD97sIQJGzOdGzbU-4xnUR9EhGrJnWYwNpOB0eKvnYGV1N-eAzrfPsBxfoYmhBlelfEk1tJkm0KuYdJtMdqiIXXGmnlk1SOVXUvu30VH3WUyV1VpoIe43vaQT0sdC5EYmGP23AV33gIYLDWFCSzGRFWXhstDRyIOti6xZzySMSE3eRiYD05GwmRiwsWlaCfgM2Pi3sEnjuTEJ8ltye2-waCDY7UQkYBfkoyhF8GhImVzzueckaMoRyCIndpuvpcq4YuPJeDQx3T~PlJiPKbtzLYB~MDVUVQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Hi Nanna</h5>
+          <p>LoveStory</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi135120665/1434659607842-pgv4ql-1702968751291.mp4?Expires=1738948398&Signature=AaWTqUoPVaHrBb2AtUuy4~OyPda70k7PRSvfCNoHDxZmaf0ocFeBqPP0-PMwEKoK2y8ondcBDIsWIRZ-WnpHhDIG~xtXRQIYtM0wme-DEi7jBw63t78Xh3T-PX-ob6Jv0eJ8Xsoy7zocboiU2lDBFSe3YfiNQwFO6UuR34Vqvo6HCymblODsgiFZbJXIYkQGF7ip4AtarrnZYWjAN~nG5eb0cJI7x4ZLapZ~vXfYdVWU6Szat5QVF-3wVhYDuAMj-qLhu3yWvyt72szHNJijcP37~4vJnb3SZvU57t2ZfRWX-kJODJOWsMlHTmVbl6-tBNE590ypUWSqofQjIKdqRw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>kaatera</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi986760985/1434659607842-pgv4ql-1695219579056.mp4?Expires=1738948474&Signature=HHUUffyJ-skVRaars0AduP0Ea8Y3NJnscvyL32nlUfEdMT7PoOiKiBs9VdmTLdewwiiKkQtsy3OvrezNj4boPbtuQaAhHbOLDk9B~8wDGiFix7TuEupzCN1OSm9mr0HBAOCwx~ruVyYVI4JGwHBtG6x7bB36LC07uC1UNx5pSTZoX0oDe0tYOiC~D~Yz5Hsicfs2p3SwTJFyX1NelV4AYTEXRTm3l~Q167EH4o125HNSpmRxy9Qp6iNMScrFJV3L~4dw2O40HSDEglD-cF96v06VfrNQ9dQ1bgbwe7f1px3R1XYSI3dj8GsuPq9Qa5SUl1iwblvh8I1iwMlw-0HYhg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Jawan</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi2451753241/1434659607842-pgv4ql-1737101230191.mp4?Expires=1738948313&Signature=T4un2MxIjR5XRvQ0nEfiT-3oiQWHcv0Csy4JbJ-~Jh~GEBF5sIfENgHSrq7ryXpfiJfiMfHS1s~O-MeQFFfIwT7QAqeKe~ZzdSIHkpf6uGDXKY5ZPidEbLVSp~klPTpFP1okOzy2wLsePwzF4Ew1H-~~LIgNAdWocPj0fEKEl6STgnYPsOn547ko2kg8TTItoeUDPcwDdEqTK-hPNkWbenXNPr9WAzagWx1JkpyKVP3DXofpNb09sbRZO7kVzbNcjuFVPTYZIAIky0-MWCpKbE3XUw6OmaCbVXep3igogoq9loUEabKOneKrsHj72Z4Zd9WRjITQwN-ixhBSzRFisg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>vidaamuyarchi</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi760267289/1434659607842-pgv4ql-1662432666291.mp4?Expires=1738948796&Signature=SzwpQWM4iZdCptiIFclNqep19XXYkzOwNp6ViaS6~Q0hkHWhRvXswXGEPMEfCH5x9EBehOazS9oaCWgVv35jeUytlWVwDfvRBSlJGtWxl6bO1PFZZ41Z7E~SnJuzbmGUTf03AlcVA3U2~o1ky2Z3TQeTsjptjzC~ZV9wQMokNt4nxiuNgvsWvyrtx9mXI8wc5ZXEmXsTts0Oo2gIemV65-ZRIABlCWhJbIdpZxA93~GN5ZPVrKyqMsIffg6fKiFxGqEt4uD7-m04m8qexGN2~F6kZ6I6Gw549C3WFObZsKzW1lSZ8tc2AsPqwHbFvOLZP53~B7oZOQnYWgeppo2QZw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Kaantara</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi3431842329/1434659607842-pgv4ql-1652774087329.mp4?Expires=1738948847&Signature=f109f72TI5DLmXqUA5Ta5YP1NCADhdazNqNXXqujChfra0ycP~lDP8IAJJ~zFFyfY0tnTO569A3QX3tdmFO8IEtS0llgai2XdQ-BQPoMpDG9DwAKyJ1aklPT222OfYq1T8wtOTdrmmHdOly3suDYlJ8KIEpvGHrCWz971wxouItkLPqPSOQyhHg-VDdiR7EOCDGgfnpm4jaPVV1CwDNU1c38mZo520OMmUp3P81A41b0VMqiHZ04YMqUwxkVmV4gzm~azKq8a0M0fYHxnKuy5IrFbr-rgXKGoWs7T3uEG4uWvxgzJrUsm22jblSkODl60mk0lYfhAk13Q~1CG3~R3A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>777 Charlie</h5>
+          <p>Comedy Drama</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi3805202713/1434659607842-pgv4ql-1735534290096.mp4?Expires=1738948788&Signature=sOqQUYvWPO-4gBy-wCcAGd-Bpo8FrnT1jBaqPUdtSlme-8UxPOnxZo8nwEQdpWe0OVX-~nXGE5xuC1D77FOcU3XUWb9mjSLKezjfAw0ffEQuSnnXWq0o3wpf~O50aeN3hw44Ak59cg8TfdnRTde4QnkJBVXPzvfaxtfva9KL-D5Op0M-NaQjOaLPm4k~ZD~bpGGng4jIkjGihcpJyFJMEGYIq31gXudy~gWyYlwlAawp4nOemnHaHudwZ-cR-jfLvebyix6m3OHIkQ-fXtT9mbt~~CHlFTVsvxAZZUm5p6sW1ycSe42gd5OVqn2SlSPdDuJj9HOjvwzzwTvnmx0CuQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Sikandar</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <video src="https://imdb-video.media-imdb.com/vi1721157913/1434659607842-pgv4ql-1731923019170.mp4?Expires=1738948415&Signature=E1hXFq5DP8Z-IEX-yjawT4z5M3DUHbHl9IFSKUzyfkKyBZWbAKU3hPSxpv1bhbmKtVVLrgj8z1w6AiIMiD79SyWUhC4Lqy3sZzONQlWsyT-rd0jKZrpimOtEK0h0TOhlGftyw3TQDD8fORGR1LNkHeAgRjldXXrkGgILbnhvJrnXJG-aCsqwVUVYPPf07ietJxK380z9ZdJi1Hhj7dlFES0Gi~RAWIHH9YJa2Jy6ps0DsfPxi14lUnWA6qlkm50bDQ-aML7-NnAhcCyr0eTrBAnsH8KdA5~mSmODYS5a1zIUQKfdnEu51ViCdoFete-RCiksfyATEk20JPARZKUdsw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Pushpa Rule-2</h5>
+          <p>Action Movie</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
   
-    
+  <div id="most_popular_actors">
+    <strong><h1>Most Popular Artists :</h1></strong>
+  </div>
+
+  <!-- <div id="carousel-container_card"></div> -->
+  
+  <div class="swiper-container mySwiper">
+    <!-- <div class="slider-wrapper"> -->
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="https://i.pinimg.com/736x/2d/ed/79/2ded79347750ff69cb718d3f06bb99bf.jpg" alt="" width="200" height="250">
+        <h4>Anushka Shetty</h4>
+        <p>Tollywood Actress</p>  
+      </div>
+      <div class="swiper-slide">
+      <img src="https://preview.redd.it/indian-actor-shahrukh-khan-so-may-women-go-crazy-for-him-he-v0-t4rgz8qdz8rb1.jpg?width=640&crop=smart&auto=webp&s=c6a5651c4699462c2c18cf940b81bba526d99705" alt=""> 
+      <h4>Sharuh Khan</h4>
+      <p>Bollywood Shainshah</p>
+    </div>
+      <div class="swiper-slide">
+        <img src="https://static.toiimg.com/thumb/imgsize-23456,msid-110533878,width-600,resizemode-4/110533878.jpg" alt="">
+        <h4>MaheshBabu</h4>
+        <p>Tollywood SperStar</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://images.filmibeat.com/img/popcorn/profile_photos/sree-leela-20231013174826-40142.jpg" alt="">
+        <h4>Srileela</h4>
+        <p>Sandalwood Actress</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://reservemystar.com/wp-content/uploads/2021/02/Kajal-Aggarwal.jpg" alt="">
+        <h4>Kajal Aggharwal</h4>
+        <p>Tollywood Actress</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://cdn.siasat.com/wp-content/uploads/2023/11/nayanthara.jpg" alt="">
+        <h4>NayanaTara</h4>
+        <p>Kollywood Lady SuperStar</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://www.wallsnapy.com/img_gallery/beautiful-vijay-sethupathi-hd-photo-6334142.jpg" alt="">
+        <h4>Vijay Sethupati</h4>
+        <p>Kollywood RisingStar</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://w0.peakpx.com/wallpaper/841/90/HD-wallpaper-kgf-chapter-2-kgf-rocking-star-yash-yash-thumbnail.jpg" alt="">
+        <h4>Yash</h4>
+        <p>Sandalwood RockingStar</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="https://www.filmibeat.com/wimg/mobi/2019/07/aishwarya-rai-bachchan_14.jpg" alt="">
+        <h4>Aishwarya Rai Bachhan</h4>
+        <p>Bollywood Actress (MissWorld)</p>
+      </div>
+    <div class="swiper-slide">
+      <img src="https://m.media-amazon.com/images/M/MV5BMjMwNTIxODg0OF5BMl5BanBnXkFtZTgwODg2NzM0OTE@._V1_FMjpg_UX1000_.jpg" alt="">
+      <h4>Salmaan Khan</h4>
+      <p>Bollywood SuperStar</p>
+    </div>
+    <div class="swiper-slide">
+      <img src="https://e1.pxfuel.com/desktop-wallpaper/482/825/desktop-wallpaper-d-boss-darshan-thoogudeepa.jpg" alt="">
+      <h4>Darshan TooguDeep</h4>
+      <p>Sandalwood Challenging Star</p>
+    </div>
+    <div class="swiper-slide">
+      <img src="https://wallpapers.com/images/hd/allu-arjun-smiling-sq4roinrtnh3he3b.jpg" alt="">
+      <h4>Allu Arjun</h4>
+      <p>Tollywood Icon Star</p>
+    </div>
+    </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+  </div>
+  
+
+  
+
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script type="module" src="./dashboard.js"></script>
+  <script src="./database2.js" type="module"></script>
+
+
 </body>
+
 </html>
