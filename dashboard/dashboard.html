@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link
       rel="stylesheet"
       href="https://unpkg.com/swiper/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./database.css">
   <link rel="stylesheet" href="./dashboard.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
@@ -53,10 +56,13 @@
           </li>
 
         </ul>
-        <!-- <form class="d-flex" role="search"> -->
+       
         <input id="search" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark" id="watchlist" type="submit"><i class="fa-solid fa-plus"></i>
-          <i>watchlist</i></button>
+        <button class="btn btn-outline-dark" id="watchlist"><i class="fa-solid fa-plus"></i>
+          watchlist</button>
+         <div>
+          <div id="watchlist-container"></div>
+         </div>
         <!-- </form> -->
         <li class="nav-item dropdown" id="en">
           <a id="languages" class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown"
@@ -64,10 +70,10 @@
             <i>languages</i>
           </a>
           <ul class="dropdown-menu" id="lang_dropdown">
-            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Tamil(Kollywood)</i></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Hindi(Bollywood)</i></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Kannada(sandalwood)</i></li>
-            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle"></i></a><i>Telugu(tollywood)</i></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle">Tamil(Kollywood)</i></a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle">Hindi(Bollywood)</i></a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle">Kannada(sandalwood)</i></a></li>
+            <li><a class="dropdown-item" href="#"><i class="fa-light fa-circle">Telugu(tollywood)</i></a></li>
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -81,6 +87,8 @@
 
   <div id="filteredData"></div>
   <div id="movieContainer"></div>
+  <div id="defaultMovies"></div>
+
 
 
   <div id="carouselExampleCaptions" class="carousel slide">
@@ -91,63 +99,65 @@
     </div> -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <video src="https://imdb-video.media-imdb.com/vi3834163993/1434659607842-pgv4ql-1438191196090.mp4?Expires=1738948248&Signature=nGcC7I9yWYSW3rkPc03AIa2~etf~zAUnfUDdX-6HEDsuko6Rxs4vyf1LnLlbWYc8F-JwG2RUsWXWCwPBNcz4jLYfD-onCcjkIImMjvl3GXsh7WCVra230lLK6auAKJ-5~Oz0NJQjZnR~AsJSWxzmAq4aV5jhw1WgU8FZiu6Tc4FlvTXqj~pFZu2fAA2SkvfmTB8WMr9n9gO2TePjAEESrCtKDtZItb80ZtxuiViJNtwZ2zHEMteRwnTw~urT5qpUnQse3hj2qYejd1zpZM4x~9XqeT6xDGAyR1p5SanGx4sBrv~jJ6je4aMHGGkYf4bAZk71YMc6KqMI7AWcXIEJAA__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video controls class="d-block w-100" alt="..." >
+          <source  src="../../../../Downloads/bahubali.mp4" type="video/mp4">
+        </video>
         <div class="carousel-caption d-none d-md-block">
           <h5>Bahubali</h5>
           <p>Action, Drama</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi3994273561/1434659607842-pgv4ql-1700903097714.mp4?Expires=1738948354&Signature=qwpcGJC1wGqCLtNtBeQ39TKpYwGwtkKbK~GU~fMkq93RJ5sXkivZEQ9uD97sIQJGzOdGzbU-4xnUR9EhGrJnWYwNpOB0eKvnYGV1N-eAzrfPsBxfoYmhBlelfEk1tJkm0KuYdJtMdqiIXXGmnlk1SOVXUvu30VH3WUyV1VpoIe43vaQT0sdC5EYmGP23AV33gIYLDWFCSzGRFWXhstDRyIOti6xZzySMSE3eRiYD05GwmRiwsWlaCfgM2Pi3sEnjuTEJ8ltye2-waCDY7UQkYBfkoyhF8GhImVzzueckaMoRyCIndpuvpcq4YuPJeDQx3T~PlJiPKbtzLYB~MDVUVQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/hi+nanna" controls></video>
         <div class="carousel-caption d-none d-md-block">
           <h5>Hi Nanna</h5>
           <p>LoveStory</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi135120665/1434659607842-pgv4ql-1702968751291.mp4?Expires=1738948398&Signature=AaWTqUoPVaHrBb2AtUuy4~OyPda70k7PRSvfCNoHDxZmaf0ocFeBqPP0-PMwEKoK2y8ondcBDIsWIRZ-WnpHhDIG~xtXRQIYtM0wme-DEi7jBw63t78Xh3T-PX-ob6Jv0eJ8Xsoy7zocboiU2lDBFSe3YfiNQwFO6UuR34Vqvo6HCymblODsgiFZbJXIYkQGF7ip4AtarrnZYWjAN~nG5eb0cJI7x4ZLapZ~vXfYdVWU6Szat5QVF-3wVhYDuAMj-qLhu3yWvyt72szHNJijcP37~4vJnb3SZvU57t2ZfRWX-kJODJOWsMlHTmVbl6-tBNE590ypUWSqofQjIKdqRw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/act-1978" controls></video>
         <div class="carousel-caption d-none d-md-block">
-          <h5>kaatera</h5>
+          <h5>Act-1978</h5>
           <p>Action Movie</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi986760985/1434659607842-pgv4ql-1695219579056.mp4?Expires=1738948474&Signature=HHUUffyJ-skVRaars0AduP0Ea8Y3NJnscvyL32nlUfEdMT7PoOiKiBs9VdmTLdewwiiKkQtsy3OvrezNj4boPbtuQaAhHbOLDk9B~8wDGiFix7TuEupzCN1OSm9mr0HBAOCwx~ruVyYVI4JGwHBtG6x7bB36LC07uC1UNx5pSTZoX0oDe0tYOiC~D~Yz5Hsicfs2p3SwTJFyX1NelV4AYTEXRTm3l~Q167EH4o125HNSpmRxy9Qp6iNMScrFJV3L~4dw2O40HSDEglD-cF96v06VfrNQ9dQ1bgbwe7f1px3R1XYSI3dj8GsuPq9Qa5SUl1iwblvh8I1iwMlw-0HYhg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/ala+vaikunta+puramalo" controls></video>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Jawan</h5>
+          <h5>Ala Vaikuntapuramulo</h5>
           <p>Action Movie</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi2451753241/1434659607842-pgv4ql-1737101230191.mp4?Expires=1738948313&Signature=T4un2MxIjR5XRvQ0nEfiT-3oiQWHcv0Csy4JbJ-~Jh~GEBF5sIfENgHSrq7ryXpfiJfiMfHS1s~O-MeQFFfIwT7QAqeKe~ZzdSIHkpf6uGDXKY5ZPidEbLVSp~klPTpFP1okOzy2wLsePwzF4Ew1H-~~LIgNAdWocPj0fEKEl6STgnYPsOn547ko2kg8TTItoeUDPcwDdEqTK-hPNkWbenXNPr9WAzagWx1JkpyKVP3DXofpNb09sbRZO7kVzbNcjuFVPTYZIAIky0-MWCpKbE3XUw6OmaCbVXep3igogoq9loUEabKOneKrsHj72Z4Zd9WRjITQwN-ixhBSzRFisg__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/asuran" controls></video>
         <div class="carousel-caption d-none d-md-block">
-          <h5>vidaamuyarchi</h5>
+          <h5>Asuran</h5>
           <p>Action Movie</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi760267289/1434659607842-pgv4ql-1662432666291.mp4?Expires=1738948796&Signature=SzwpQWM4iZdCptiIFclNqep19XXYkzOwNp6ViaS6~Q0hkHWhRvXswXGEPMEfCH5x9EBehOazS9oaCWgVv35jeUytlWVwDfvRBSlJGtWxl6bO1PFZZ41Z7E~SnJuzbmGUTf03AlcVA3U2~o1ky2Z3TQeTsjptjzC~ZV9wQMokNt4nxiuNgvsWvyrtx9mXI8wc5ZXEmXsTts0Oo2gIemV65-ZRIABlCWhJbIdpZxA93~GN5ZPVrKyqMsIffg6fKiFxGqEt4uD7-m04m8qexGN2~F6kZ6I6Gw549C3WFObZsKzW1lSZ8tc2AsPqwHbFvOLZP53~B7oZOQnYWgeppo2QZw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/kantara" controls></video>
         <div class="carousel-caption d-none d-md-block">
           <h5>Kaantara</h5>
           <p>Action Movie</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi3431842329/1434659607842-pgv4ql-1652774087329.mp4?Expires=1738948847&Signature=f109f72TI5DLmXqUA5Ta5YP1NCADhdazNqNXXqujChfra0ycP~lDP8IAJJ~zFFyfY0tnTO569A3QX3tdmFO8IEtS0llgai2XdQ-BQPoMpDG9DwAKyJ1aklPT222OfYq1T8wtOTdrmmHdOly3suDYlJ8KIEpvGHrCWz971wxouItkLPqPSOQyhHg-VDdiR7EOCDGgfnpm4jaPVV1CwDNU1c38mZo520OMmUp3P81A41b0VMqiHZ04YMqUwxkVmV4gzm~azKq8a0M0fYHxnKuy5IrFbr-rgXKGoWs7T3uEG4uWvxgzJrUsm22jblSkODl60mk0lYfhAk13Q~1CG3~R3A__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/arjun+reddy" controls></video>
         <div class="carousel-caption d-none d-md-block">
-          <h5>777 Charlie</h5>
+          <h5>Arjun Reddy</h5>
           <p>Comedy Drama</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi3805202713/1434659607842-pgv4ql-1735534290096.mp4?Expires=1738948788&Signature=sOqQUYvWPO-4gBy-wCcAGd-Bpo8FrnT1jBaqPUdtSlme-8UxPOnxZo8nwEQdpWe0OVX-~nXGE5xuC1D77FOcU3XUWb9mjSLKezjfAw0ffEQuSnnXWq0o3wpf~O50aeN3hw44Ak59cg8TfdnRTde4QnkJBVXPzvfaxtfva9KL-D5Op0M-NaQjOaLPm4k~ZD~bpGGng4jIkjGihcpJyFJMEGYIq31gXudy~gWyYlwlAawp4nOemnHaHudwZ-cR-jfLvebyix6m3OHIkQ-fXtT9mbt~~CHlFTVsvxAZZUm5p6sW1ycSe42gd5OVqn2SlSPdDuJj9HOjvwzzwTvnmx0CuQ__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/bharat+ane+nenu" controls></video>
         <div class="carousel-caption d-none d-md-block">
-          <h5>Sikandar</h5>
+          <h5>Bharat Ane Nenu</h5>
           <p>Action Movie</p>
         </div>
       </div>
       <div class="carousel-item">
-        <video src="https://imdb-video.media-imdb.com/vi1721157913/1434659607842-pgv4ql-1731923019170.mp4?Expires=1738948415&Signature=E1hXFq5DP8Z-IEX-yjawT4z5M3DUHbHl9IFSKUzyfkKyBZWbAKU3hPSxpv1bhbmKtVVLrgj8z1w6AiIMiD79SyWUhC4Lqy3sZzONQlWsyT-rd0jKZrpimOtEK0h0TOhlGftyw3TQDD8fORGR1LNkHeAgRjldXXrkGgILbnhvJrnXJG-aCsqwVUVYPPf07ietJxK380z9ZdJi1Hhj7dlFES0Gi~RAWIHH9YJa2Jy6ps0DsfPxi14lUnWA6qlkm50bDQ-aML7-NnAhcCyr0eTrBAnsH8KdA5~mSmODYS5a1zIUQKfdnEu51ViCdoFete-RCiksfyATEk20JPARZKUdsw__&Key-Pair-Id=APKAIFLZBVQZ24NQH3KA" class="d-block w-100" alt="..." controls></video>
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/pushpa2" controls></video>
         <div class="carousel-caption d-none d-md-block">
           <h5>Pushpa Rule-2</h5>
           <p>Action Movie</p>
@@ -163,6 +173,11 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+
+
+
+
+
   
   <div id="most_popular_actors">
     <strong><h1>Most Popular Artists :</h1></strong>
@@ -238,14 +253,121 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-pagination"></div>
   </div>
-  
 
+
+
+  <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper2">
+    <div class="swiper-wrapper" >
+      <div class="swiper-slide" >
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/pushpa2" controls width="500px"></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/padmavat" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/devara" controls ></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/diyaa" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/gitagovindam" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/gully+boy" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/fidaa" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/kantara" controls></video>
+      </div>
+      
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+  <div thumbsSlider="" class="swiper mySwiper1">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/pushpa2" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/padmavat" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/devara" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/diyaa" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/gitagovindam" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/gully+boy" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/fidaa" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/kantara" controls></video>
+      </div>
+      <div class="swiper-slide">
+        <video src="https://moviemate-bucket-s3.s3.ap-south-1.amazonaws.com/videos/movievideo/1434659607842-pgv4ql-1510517720098.mp4" controls></video>
+      </div>
+      
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+
+  </div>
+
+
+
+
+  <div id="footerpage">
+    <div id="footer_content">
+        <button class="left_btn">Follow MovieMate on social
+          <p>
+            <i class="fa-brands fa-tiktok"></i>
+          <i class="fa-brands fa-instagram"></i>
+          <i class="fa-brands fa-youtube" style="color:#ebedf0;"></i>
+          <i class="fa-brands fa-facebook" style="color: #ebeef2;"></i>
+          </p>
+        </button>
+        <button class="right_btn">
+          Get the MovieMate app
+          <p>for android </p>
+          <i class="fa-sharp fa-regular fa-qrcode" style="color: #eaedf2;"></i>
+        </button>
+    </div>
+ 
+  <div id="anchor_tags">
+      <a href="">Help</a>
+      <a href="">Site Index</a>
+      <a href="">MovieMate pro</a>
+      <a href="">Box Office Mojo</a>
+      <a href="">License MovieMate Data</a>
+      <a href="">Press Room</a>
+      <a href="">Advertising</a>
+      <a href="">Conditions Of Use</a>
+      <a href="">Privacy Policy</a>
+      
+  </div>
+  <div id="movie-com">
+    <p><i class="fa-solid fa-copyright" style="color: white;"></i> 1990-2015 by MovieMate.com, Inc</p>
+  </div>
+</div>
+    
+  
   
 
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script type="module" src="./dashboard.js"></script>
-  <script src="./database2.js" type="module"></script>
-
+  <script  type="module" src="./database2.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 </body>
 

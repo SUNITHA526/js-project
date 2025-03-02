@@ -1,20 +1,128 @@
-.movie-card{
-    align-items: center;
-    color: white;
-    font-weight: bold;
-    border: 2px solid white;
-    box-shadow: 5px whitesmoke;
-    /* display: flex; */
-    width: 60%px;
-    height: 70%;
-}
-/* div{
+.movie-card {
     display: flex;
-    width: 350px;
-    height: 500px;
-} */
-.Nomoviesfound{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* text-align:; */
+
+    box-shadow: 20px 20px 10px rgb(106, 106, 4);
+    padding: 10px;
+
+}
+
+.movie-card p,
+.movie-card h2 {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    color: black;
+    line-height: 0.5;
+    font-size: 14px;
+}
+
+.movie-card>h3 {
+    color: black;
+    font-size: 1.3rem;
+}
+
+.watchlist-btn {
+    padding: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    display: inline-block;
+    margin-right: 10px;
+    width: auto; /* ✅ Prevents button from inheriting the 200px width */
+    min-width: fit-content
+}
+
+
+.Nomoviesfound {
     font-size: 1.2rem;
     color: white;
     font-family: cursive;
 }
+
+.moviecard-div {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+    height: 35%;
+}
+
+#movieContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#navbarSupportedContent {
+    display: flex;
+}
+
+#watchlist {
+    font-weight: bold;
+    color: white;
+    background-color: black;
+    /* padding: 10px; */
+    font-size: 1.2rem;
+    outline-color: black;
+    display: flex;
+}
+
+#watchlist-container {
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    width: 200px;
+    position: relative;
+    top: 8rem;
+    line-height: 0.8;
+    transform: translateX(-100%);
+    z-index: 1000;
+    overflow-y: auto;
+    max-height: 200px;
+    display: none; 
+}
+
+@media (max-width: 768px) {
+    .navbar .form-control {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    .navbar .btn {
+      width: 100%;
+    }
+  }
+  
+  /* Carousel Responsiveness */
+  .carousel-inner video {
+    max-height: 700px;
+    object-fit: cover;
+  }
+  
+  @media (max-width: 768px) {
+    .carousel-inner video {
+      max-height: 250px;
+    }
+  }
+  
+  /* Swiper Adjustments */
+  .swiper-slide img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .swiper-slide img {
+      max-width: 150px;
+    }
+  }

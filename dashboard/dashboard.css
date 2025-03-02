@@ -1,21 +1,19 @@
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;   
 }
 
-
-
-body {
-    background-image: url("https://images.pexels.com/photos/4722571/pexels-photo-4722571.jpeg?auto=compress&cs=tinysrgb&w=600");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Keeps the background static while scrolling */
+ body {
+    /* background-image: url("https://images.pexels.com/photos/4722571/pexels-photo-4722571.jpeg?auto=compress&cs=tinysrgb&w=600"); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* background-position: center; */
+    /* background-attachment: fixed; Keeps the background static while scrolling    */
+  
     
-}
-
+} 
 #en>a{
     font-weight: bold;
 }
@@ -23,9 +21,10 @@ body {
     font-weight: bold;
     color:white;
     background-color:  black;
-    padding: 10px;
-    font-size: 1.2rem;
+    /* padding: 10px; */
+    font-size: 1rem;
     outline-color: black;
+    display: flex;
 }
 #search{
     font-weight: bold;
@@ -39,13 +38,13 @@ body {
     font-size: 1.2rem;
 }
 #languages{
-    margin-left: 50px;
+    margin-left: 10px;
     margin-bottom: 20px;
    font-size: 1.2rem;
    background-color: black;
    color:white;
    border-radius: 5px;
-   padding: 12px;
+   padding: 8px;
 }
 
 
@@ -67,6 +66,8 @@ body {
     /* background: #fff; */
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+    width: 400px;
+    height: 500px;
 }
 
 .movie-card:hover {
@@ -75,7 +76,9 @@ body {
 
 .movie-card video {
     width: 100%;
+    height:50%;
     border-radius: 8px;
+    
 }
 
 .all_dropdown{
@@ -91,14 +94,26 @@ body {
     font-weight: bold;
     color: rgb(106, 10, 10);
 }
-.watchlist-btn{
+/* .watchlist-btn{
     padding: 10px;
-    background-color: rgb(106, 10, 10);
+    background-color: black;
     color: white;
     border-radius: 20px;
     margin-bottom: none;
-}
+} */
+.like-btn i {
+    font-size: 20px;
+    color: black; /* Default color */
+    transition: color 0.3s ease;
+    
+  }
 
+  .like-btn.liked i {
+    color: black; /* Red color when liked */
+    border: none;
+    outline: none;
+    background: none;
+  }
 
 #most_popular_actors{
     color: white;
@@ -118,22 +133,27 @@ body {
 html,
       body {
         position: relative;
-        height: 100%;
-      }
+        height: 100vh;       
+        overflow-x: hidden; 
+        width: 100vw;  
+        padding: 0;
+        margin: 0;
+        
+      } 
 
       body {
-        /* background: #eee; */
-        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-family: cursive;
         font-size: 14px;
         color: white;
         margin: 0;
         padding: 0;
+        
       }
 
       .swiper-slide {
         text-align: center;
         font-size: 18px;
-        width: 300px;
+        width: 150px;
         height: 350px;
         -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -143,24 +163,40 @@ html,
         -ms-flex-align: center;
         -webkit-align-items: center;
         align-items: center;
-      }
 
+      }
       
+
       .swiper-slide img {
-        width: 80%;
+        width: 70%;
         height: 70%;
         border-radius: 50%;
     }
     
       .slider-wrapper{
         overflow: hidden;
-        margin: 0 70px 55px;
+        margin: 0;
       }
       .swiper-container {
         position: relative;
-        width: 80%;
+        width: 65%;
         margin: auto;
     }
+    .mySwiper1 .swiper-slide {
+      
+      flex: 0 0 25%; 
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+  }
+  .mySwiper {
+    width: 90%;
+    overflow: hidden; 
+    
+  }
 
     .swiper-button-next,
 .swiper-button-prev {
@@ -179,7 +215,7 @@ html,
 }
 
 .swiper-button-next {
-    right: -50px; /* Adjust spacing */
+    right: -50px;
 }
 
 .swiper-button-prev {
@@ -194,5 +230,241 @@ html,
 .swiper-slide p {
     margin: 5px 0;
     font-size: 16px;
-    color: white;
+    color: black;
 }
+
+
+#footerpage {
+    display: block;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 350px; /* Adjust height as needed */
+    background-color: black;
+    margin-top: 20px;
+}
+
+#footer_content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; /* Space between buttons */
+    padding-top: 30px;
+}
+
+.left_btn {
+    width: 250px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px; /* Optional */
+    display: flex;
+    flex-direction: column; /* Stack text and icons */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+   
+    
+}
+.right_btn{
+    width: 250px; /* Fixed width */
+    height: 100px; /* Fixed height */
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px; /* Optional */
+    display: flex;
+    flex-direction: column; /* Stack text and icons */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer; 
+}
+
+button p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+button i {
+    font-size: 20px;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+#anchor_tags {
+    display: flex;
+    flex-wrap: wrap;  /* Allows items to move to the next line */
+    justify-content: center; /* Centers the links */
+    gap: 15px 30px; /* Row gap: 15px, Column gap: 30px */
+    max-width: 600px; /* Restrict width to force wrapping */
+    margin: 20px auto; /* Centers the div */
+    text-align: center;
+}
+
+#anchor_tags a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+#anchor_tags a:hover {
+    text-decoration: underline;
+}
+
+#movie-com {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 50px; /* Adjust as needed */
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+    width: 100vw;    
+    height: 100vh; 
+}
+
+.carousel-item video {
+    width: 100%;
+    height: 100%;  
+    object-fit: contain;   
+}
+
+
+
+.swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .swiper-slide video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    align-content: center;
+  }
+
+  
+
+  .swiper {
+    width: 100%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mySwiper1 {
+    height: 50%;
+    width: 100%;
+  }
+
+  .mySwiper1 {
+    height: 20%;
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .mySwiper1 .swiper-slide {
+    width: 25%;
+    height: 100%;
+    opacity: 0.4;
+  }
+
+  .mySwiper1 .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  .swiper-slide video {
+    display: block;
+    /* width: 100%; */
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+
+
+
+
+  
+  
+  
+.swiper-button-next, 
+.swiper-button-prev {
+  color: white; 
+  border-radius: 50%; 
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.swiper-button-next:hover, 
+.swiper-button-prev:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.swiper-button-next {
+  right: 10px;
+}
+
+.swiper-button-prev {
+  left: 10px;
+}
+
+.mySwiper2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.mySwiper2 video {
+  width: 100%;
+  height: auto;
+}
+
+.mySwiper1 {
+  width: 100%; 
+  margin-top: 20px; 
+}
+
+.mySwiper1 video {
+  width: 100%; 
+  max-width: 100%;
+}
+
+
+
+
+

@@ -36,3 +36,9 @@ body>h1{
 #modal_container{
     background: maroon;
 }
+#exampleModal{
+    background-color: maroon;
+}
+#Register{
+    text-align: center;
+}

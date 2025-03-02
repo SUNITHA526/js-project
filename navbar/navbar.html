@@ -17,17 +17,21 @@
           </div>
 <div class="container" id="modal_container">
   <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
+      <div class="container-fluid" id>
           <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyRSMgB-INUQAPYiSmh1tlgLclVReZAci9gQ&s" alt="" width="80" height="40" class="logo"/>
 
           <form class="d-flex" role="search">
-              <button class="form-control me-2" type="button" aria-label="Search" id="signup-btn">SignUp</button>
-              <button class="btn btn-outline-danger" type="button" id="login-btn">Login</button>
+            <button class="form-control me-2" type="button" id="signup-btn" 
+            data-bs-toggle="modal" data-bs-target="#exampleModal">SignUp</button>
+    
+    <!-- Login Button -->
+    <button class="btn btn-outline-danger" type="button" id="login-btn" 
+            data-bs-toggle="modal" data-bs-target="#exampleModal2">Login</button>
           </form>
       </div>
   </nav>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -60,11 +64,8 @@
     </div>
   </div>
   
-  
-  
-  
 
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -91,8 +92,6 @@
             </div>
         </div> 
       </div>
-      
-
 <script type="module" src="../authentication/auth.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.all.min.js"></script>
 

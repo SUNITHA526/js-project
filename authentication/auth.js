@@ -1,6 +1,6 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-  import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"
+  import { getAuth,createUserWithEmailAndPassword,signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js"
   // import { getFirestore,collection,addDoc} from "https://www.gstatic.com/firebasejs/11.2.0/firebase-firestore.js"
   const firebaseConfig = {
     apiKey: "AIzaSyAirN8OZ1ySvBsU4uxargwF7cg5QWsQFW8",
@@ -12,7 +12,7 @@
     measurementId: "G-N3LEB4RQ3F"
   };
   const app = initializeApp(firebaseConfig);
-  const author = getAuth(app);
+  const auth= getAuth(app);
 
   
     const signupBtn = document.getElementById('signup-btn');
@@ -44,17 +44,17 @@
     
   }
     try{
-            await createUserWithEmailAndPassword(author,email,password).then(()=>{
+            await createUserWithEmailAndPassword(auth,email,password).then(()=>{
             Swal.fire({
                 title: "Registered Successfully!!",
                 icon: "success",
                 
               }).then(()=>{
-                    document.getElementById("username").textContent=""
-                    document.getElementById("email").textContent=""
-                    document.getElementById("password").textContent=""
+                    document.getElementById("username").value=""
+                    document.getElementById("email").value=""
+                    document.getElementById("password").value=""
 
-                    location.href="./navbar.html"
+                    location.href="../../dashboard/dashboard.html"
 
               })
 
@@ -63,7 +63,7 @@
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error,
+            text: error.message,
           })
     }
   
@@ -100,15 +100,15 @@
     
   }
     try{
-            await signInWithEmailAndPassword(author,lemail,lpassword).then(()=>{
+            await signInWithEmailAndPassword(auth,lemail,lpassword).then(()=>{
             Swal.fire({
                 title: "loggedin Successfully!!",
                 icon: "success",
                 
               }).then(()=>{
                     
-                    document.getElementById("lemail").textContent=""
-                    document.getElementById("lpassword").textContent=""
+                    document.getElementById("lemail").value=""
+                    document.getElementById("lpassword").value=""
 
                     location.href="../../dashboard/dashboard.html"
               })
@@ -118,7 +118,7 @@
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: error,
+            text: error.message,
           })
     }
   })
